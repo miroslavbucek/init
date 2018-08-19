@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# update
 apt update
 
 # install basic packages
