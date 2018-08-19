@@ -1,1 +1,1 @@
-# init
+# Debian and ubuntu init
