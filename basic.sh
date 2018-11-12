@@ -21,4 +21,4 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 locale-gen cs_CZ.UTF-8
 echo "export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8">>~/.zshrc
+export LC_ALL=en_US.UTF-8" >> ~/.zshrc
