@@ -18,4 +18,4 @@ sudo make altinstall
 python3.6
 
 # setup as default
-sudo update-alternatives  --set python /usr/bin/python3.6
+sudo update-alternatives --set python /usr/bin/python3.6
