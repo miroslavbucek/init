@@ -16,13 +16,14 @@ done
 
 
 # instalace ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
 # instalace pyenv
 curl https://pyenv.run | bash
 
-cat <<"EOF" >> $HOME/.zshrc
+#cat <<"EOF" >> $HOME/.zshrc
+cat <<"EOF" >> $HOME/.bashrc
 
 export PATH="/home/caspia/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -63,4 +64,4 @@ caspia-app install-completion
 
 
 # Change default shell
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
