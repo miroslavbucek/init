@@ -16,7 +16,7 @@ done
 
 
 # instalace ohmyzsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
 # instalace pyenv
@@ -59,3 +59,8 @@ export PIP_EXTRA_INDEX_URL=https://pypi.python.org/simple
 
 # instalace caspia-app
 pip install caspia-app
+caspia-app install-completion
+
+
+# Change default shell
+chsh -s $(which zsh)
