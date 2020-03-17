@@ -60,7 +60,6 @@ export PIP_EXTRA_INDEX_URL=https://pypi.python.org/simple
 
 # instalace caspia-app
 pip install caspia-app
-caspia-app install-completion
 
 
 # Change default shell
