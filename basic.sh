@@ -7,7 +7,7 @@ apt-get update
 apt-get -y install vim zsh git mc wget htop avahi-daemon
 
 # timezone Prague
-echo "Europe/Prague" > /etc/timezone 
+echo "Europe/Prague" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
 # security updates
@@ -19,7 +19,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 
 # install czech
 locale-gen cs_CZ.UTF-8
-echo "
+echo '
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -27,4 +27,4 @@ export LC_ALL=en_US.UTF-8
 # promt s user + hostname
 PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
 # enable completion
-autoload -Uz compinit && compinit" >> ~/.zshrc
+autoload -Uz compinit && compinit' >> ~/.zshrc
