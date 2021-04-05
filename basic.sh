@@ -43,4 +43,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # promt s user + hostname
-PROMPT="%n@%m%{$reset_color%} ${PROMPT}"' >> ~/.zshrc
+PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
+
+# enable completion
+autoload -Uz compinit && compinit' >> ~/.zshrc
