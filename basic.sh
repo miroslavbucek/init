@@ -36,7 +36,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 
 # install czech
 locale-gen cs_CZ.UTF-8
-echo '#
+echo '# @mbb
 # cestina
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
