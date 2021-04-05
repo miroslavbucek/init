@@ -1,4 +1,4 @@
-# Debian and ubuntu init
+# Debian and Ubuntu init
 
 spustit nejdřív jako root a potom jako běžný uživatel
 
