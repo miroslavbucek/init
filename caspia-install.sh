@@ -22,17 +22,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # instalace pyenv
 curl https://pyenv.run | bash
 
-#cat <<"EOF" >> $HOME/.bashrc
-cat <<"EOF" >> $HOME/.zshrc
-
-export PATH="/home/caspia/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-EOF
-
-export PATH="/home/caspia/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+echo -e 'if [ -z "$BASH_VERSION" ]; then'\\n      '\n  export PYENV_ROOT="$HOME/.pyenv"'\\n      '\n  export PATH="$PYENV_ROOT/bin:$PATH"'\\n      '\n  eval "$(pyenv init --path)"'\\n      '\nfi' >>~/.zprofile
 
 
 # instalace python 3.7
