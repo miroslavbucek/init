@@ -1,4 +1,6 @@
 #!/bin/bash
+# spuštění
+# bash <(wget -qO- https://raw.githubusercontent.com/miroslavbucek/init/master/caspia-install.sh)
 
 # ošetření jména a hesla
 while [[ $# -gt 0 ]]
@@ -54,5 +56,21 @@ pip install caspia-app
 # Change default shell
 chsh -s $(which zsh)
 
+
+# install czech
+if ! grep -q "@mbb" ~/.zshrc; then
+locale-gen cs_CZ.UTF-8
+echo '# @mbb
+# cestina
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# promt s user + hostname
+PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
+
+# enable completion
+autoload -Uz compinit && compinit' >> ~/.zshrc
+fi
 
 echo "Odhlas se a znovu přihlas"
