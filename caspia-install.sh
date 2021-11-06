@@ -59,7 +59,7 @@ chsh -s $(which zsh)
 
 # install czech
 if ! grep -q "@mbb" ~/.zshrc; then
-locale-gen cs_CZ.UTF-8
+sudo locale-gen cs_CZ.UTF-8
 echo '# @mbb
 # cestina
 export LANGUAGE=en_US.UTF-8
