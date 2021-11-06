@@ -69,6 +69,7 @@ PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
 autoload -Uz compinit && compinit' >> ~/.zshrc
 fi
 
+zsh
 
 # instalace caspia-app
 pip install caspia-app
