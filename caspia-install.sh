@@ -15,21 +15,20 @@ shift
 done
 
 
+# install docker
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli
+
+
+# nastavení docker registry
+docker login -u $USER -p $PASS registry.caspiatech.cz
+
+
 # instalace ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-
-# instalace pyenv
-curl https://pyenv.run | bash
-
-echo -e 'if [ -z "$BASH_VERSION" ]; then'\\n      '\n  export PYENV_ROOT="$HOME/.pyenv"'\\n      '\n  export PATH="$PYENV_ROOT/bin:$PATH"'\\n      '\n  eval "$(pyenv init --path)"'\\n      '\nfi' >>~/.zprofile
-
-
-# instalace python 3.7
-pyenv install 3.7.4
-pyenv global 3.7.4
-pyenv rehash
-pip install --upgrade pip
 
 
 # nastavení docker registry
