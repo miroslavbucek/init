@@ -49,10 +49,6 @@ export PIP_INDEX_URL=https://$USER:$PASS@pypi.caspiatech.cz/simple
 export PIP_EXTRA_INDEX_URL=https://pypi.python.org/simple
 
 
-# instalace caspia-app
-pip install caspia-app
-
-
 # Change default shell
 chsh -s $(which zsh)
 
@@ -72,5 +68,10 @@ PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
 # enable completion
 autoload -Uz compinit && compinit' >> ~/.zshrc
 fi
+
+
+# instalace caspia-app
+pip install caspia-app
+
 
 echo "Odhlas se a znovu přihlas"
