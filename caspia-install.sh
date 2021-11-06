@@ -1,6 +1,6 @@
 #!/bin/bash
 # spuštění
-# bash <(wget -qO- https://raw.githubusercontent.com/miroslavbucek/init/master/caspia-install.sh)
+# bash <(wget -qO- https://raw.githubusercontent.com/miroslavbucek/init/master/caspia-install.sh) -u nuc -p <heslo>
 
 # ošetření jména a hesla
 while [[ $# -gt 0 ]]
