@@ -72,4 +72,6 @@ fi
 pip install caspia-app
 
 
+echo ""
 echo "Odhlas se a znovu přihlas"
+echo ""
