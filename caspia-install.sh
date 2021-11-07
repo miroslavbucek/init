@@ -24,6 +24,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli
 
+sudo gpasswd -a $USER docker
 
 # nastavení docker registry
 docker login -u $USER -p $PASS registry.caspiatech.cz
@@ -31,10 +32,6 @@ docker login -u $USER -p $PASS registry.caspiatech.cz
 
 # instalace ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-
-# nastavení docker registry
-docker login -u $USER -p $PASS registry.caspiatech.cz
 
 
 # instalace caspia pip repository
@@ -56,7 +53,8 @@ chsh -s $(which zsh)
 # install czech
 if ! grep -q "@mbb" ~/.zshrc; then
 sudo locale-gen cs_CZ.UTF-8
-echo '# @mbb
+echo '
+# @mbb
 # cestina
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -69,7 +67,6 @@ PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
 autoload -Uz compinit && compinit' >> ~/.zshrc
 fi
 
-zsh
 
 # instalace caspia-app
 pip install caspia-app
