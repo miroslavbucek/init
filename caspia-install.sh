@@ -78,6 +78,7 @@ fi
 ' >> ~/.zshrc
 fi
 
+source ~/.profile
 
 # instalace caspia-app
 pip install caspia-app
