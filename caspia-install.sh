@@ -2,6 +2,11 @@
 # spuštění
 # bash <(wget -qO- https://raw.githubusercontent.com/miroslavbucek/init/master/caspia-install.sh) -u nuc -p <heslo>
 
+echo ""
+echo "Instalace Caspia-App"
+echo ""
+
+
 # ošetření jména a hesla
 while [[ $# -gt 0 ]]
 do
@@ -46,10 +51,6 @@ export PIP_INDEX_URL=https://$USER:$PASS@pypi.caspiatech.cz/simple
 export PIP_EXTRA_INDEX_URL=https://pypi.python.org/simple
 
 
-# Change default shell
-chsh -s $(which zsh)
-
-
 # install czech
 if ! grep -q "@mbb" ~/.zshrc; then
 sudo locale-gen cs_CZ.UTF-8
@@ -83,7 +84,12 @@ source ~/.profile
 # instalace caspia-app
 pip install caspia-app
 
+# Change default shell
+chsh -s $(which zsh)
 
+
+echo ""
+echo "Jak nainstalovat ukázkové příklady je popsáno zde https://confluence.caspiatech.cz/display/DOK/Instalace+serveru+NUC"
 echo ""
 echo "Odhlas se a znovu přihlas"
 echo ""
