@@ -55,6 +55,8 @@ if ! grep -q "@mbb" ~/.zshrc; then
 sudo locale-gen cs_CZ.UTF-8
 echo '
 # @mbb
+source ~/.profile
+
 # cestina
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -64,7 +66,16 @@ export LC_ALL=en_US.UTF-8
 PROMPT="%n@%m%{$reset_color%} ${PROMPT}"
 
 # enable completion
-autoload -Uz compinit && compinit' >> ~/.zshrc
+autoload -Uz compinit && compinit
+
+#compdef caspia-app
+_caspia-app() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CASPIA_APP_COMPLETE=complete-zsh  caspia-app)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_caspia-app" ]]; then
+  compdef _caspia-app caspia-app
+fi
+' >> ~/.zshrc
 fi
 
 
