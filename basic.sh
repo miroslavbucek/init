@@ -2,7 +2,7 @@
 apt-get update
 
 # install basic packages
-apt-get -y install vim zsh git mc wget htop avahi-daemon rsync
+apt-get -y install vim zsh git mc wget htop avahi-daemon
 
 # add ssh key
 authorizedkeys=~/.ssh/authorized_keys
