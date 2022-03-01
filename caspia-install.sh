@@ -82,7 +82,7 @@ fi
 source ~/.profile
 
 # instalace caspia-app
-pip install caspia-app
+pip install caspia-app --pre
 
 # Change default shell
 chsh -s $(which zsh)
