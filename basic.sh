@@ -30,8 +30,9 @@ echo "Europe/Prague" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
 # security updates
-echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | debconf-set-selections
 apt-get -y install unattended-upgrades
+echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | debconf-set-selections
+dpkg-reconfigure -f noninteractive unattended-upgrades
 
 # install oh my zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
