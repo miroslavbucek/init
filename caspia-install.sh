@@ -22,6 +22,12 @@ shift
 done
 
 
+# security updates
+apt-get -y install unattended-upgrades
+echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | debconf-set-selections
+dpkg-reconfigure -f noninteractive unattended-upgrades
+
+
 # install docker
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
