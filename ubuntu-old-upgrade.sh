@@ -4,5 +4,6 @@ sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-relea
 sudo apt update
 sudo apt upgrade
 
-# potom restart a potom
-# sudo do-release-upgrade
+echo "------------------------"
+echo "ted restart a potom"
+echo "sudo do-release-upgrade"
