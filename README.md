@@ -6,6 +6,7 @@ spustit nejdřív jako root a potom jako běžný uživatel
 
 ```bash <(wget -qO- bit.ly/mbbinit)```
 
+update sterého nepodporovaného ubuntu
 
 ```bash <(wget -qO- bit.ly/mbbubuold)```
 
