@@ -13,5 +13,3 @@ if [ "root" == "$USER" ]; then
     $sshfile > sshd_config.tmp && mv sshd_config.tmp $sshfile
   done
 fi
-
-systemctl reload ssh
