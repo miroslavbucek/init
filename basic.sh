@@ -39,7 +39,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 
 # install czech
 if ! grep -q "@mbb" ~/.zshrc; then
-locale-gen cs_CZ.UTF-8
+#locale-gen cs_CZ.UTF-8		# tohle přestalo fungovat
 echo '# @mbb
 # cestina
 export LANGUAGE=en_US.UTF-8
