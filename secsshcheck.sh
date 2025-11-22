@@ -1,34 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
-# secure ssh check
-if [ "$USER" != "root" ]; then
-  echo "Spusť jako root."
-  exit 1
-fi
-
-declare -A rules=(
-  [usepam]="no"
-  [passwordauthentication]="no"
-)
+[ "$USER" = root ] || { echo "Spusť jako root"; exit 1; }
 
 ok=1
-
-for key in "${!rules[@]}"; do
-  want="${rules[$key]}"
-  cur=$(sshd -T 2>/dev/null | awk -v k="$key" '$1==k {print $2}')
-
-  if [ "$cur" = "$want" ]; then
-    echo "[OK]   $key = $cur"
-  else
-    echo "[FAIL] $key = $cur (očekáváno: $want)"
-    ok=0
-  fi
+for k in usepam passwordauthentication; do
+  v=$(sshd -T 2>/dev/null | awk -v k="$k" '$1==k{print $2}')
+  [ "$v" = "no" ] && echo "[OK]   $k=$v" || { echo "[FAIL] $k=${v:-není} (oček:no)"; ok=0; }
 done
 
-if [ "$ok" -eq 1 ]; then
-  echo "SSH je nastavené podle požadavků (jen klíče)."
-  exit 0
-else
-  echo "SSH NENÍ nastavené správně."
-  exit 1
-fi
+[ "$ok" -eq 1 ] && echo "SSH OK (jen klíče)" || echo "SSH NENÍ OK"
+exit "$ok"
