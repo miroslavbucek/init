@@ -121,7 +121,7 @@ else
 fi
 
 echo
-printf "%bDisks%b (warn: free<=15%% / <=10%%)\n" "$DIM" "$RST"
+printf "%bDisks%b\n" "$DIM" "$RST"
 
 show_df() {
   local mp="$1" fs size used avail usep free_pct markcol mark
