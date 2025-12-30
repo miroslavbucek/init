@@ -124,14 +124,11 @@ echo
 printf "%bDisks%b\n" "$DIM" "$RST"
 
 show_df() {
-  local mp="$1" fs size used avail usep free_pct markcol mark
-  read -r fs size used avail usep _ < <(df -P -h "$mp" 2>/dev/null | awk 'NR==2{print $1,$2,$3,$4,$5,$6}') || return 0
-  free_pct="$(df -P "$mp" 2>/dev/null | awk 'NR==2{gsub("%","",$5); print 100-$5}')" || return 0
-  markcol="$GRN"; mark="OK"
-  [ "$free_pct" -le 15 ] && markcol="$YEL" && mark="LOW"
-  [ "$free_pct" -le 10 ] && markcol="$RED" && mark="CRIT"
-  printf "  %-10s %b%-4s%b  free:%-6s used:%-6s size:%-6s use:%-5s  %b%s%b\n" \
-    "$mp" "$markcol" "$mark" "$RST" "$avail" "$used" "$size" "$usep" "$DIM" "$fs" "$RST"
+  local mp="$1" size avail usep used_pct
+  read -r size avail usep < <(df -P -h "$mp" 2>/dev/null | awk 'NR==2{print $2,$4,$5}') || return 0
+  used_pct="${usep%\%}"  # bar je podle zaplnění
+  printf "  %-10s %3s%% %s  %bfree:%s / total:%s%b\n" \
+    "$mp" "$used_pct" "$(bar "$used_pct" "$BW")" "$DIM" "$avail" "$size" "$RST"
 }
 
 for mp in / /var /home /nas; do
