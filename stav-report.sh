@@ -22,7 +22,7 @@
 
 set -uo pipefail
 
-VERZE=3
+VERZE=4
 URL="https://raw.githubusercontent.com/miroslavbucek/init/master/stav-report.sh"
 CIL="/usr/local/bin/stav-report.sh"
 CONF="/etc/stav-report.conf"
@@ -175,7 +175,8 @@ report() {
 
 odesli() {
     local prijemce="$1" telo="$2" host predmet
-    host=$(hostname -f 2>/dev/null || hostname)
+    # Krátké jméno, stejné jako v poli host= v těle reportu.
+    host=$(hostname -s 2>/dev/null || hostname)
     predmet="[stav] $host $(date +%F)"
 
     if mam sendmail; then
